@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rifa Solidaria | Unidos para salir adelante</title>
+    <meta name="description" content="Landing page informativa de la rifa solidaria en apoyo a la familia de Stalyn. Premios, causa benéfica, sorteo en vivo y contacto." />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #7bb7b7;   /* celeste-verde suave */
+            --secondary: #e8f4f2; /* fondo pastel */
+            --accent: #a6d6c3;    /* verde esperanza */
+            --text-dark: #2f3e46;
+            --text-light: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #ffffff, var(--secondary));
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 12s infinite ease-in-out;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            bottom: -150px;
+            left: -150px;
+            animation: float 15s infinite ease-in-out reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero {
+            max-width: 900px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            padding: 0.9rem 2rem;
+            background: #ffffff;
+            color: var(--primary);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--secondary), #ffffff);
+            border-left: 6px solid var(--accent);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+
+        .prizes ul {
+            list-style: none;
+        }
+
+        .prizes li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #d0e5e1;
+        }
+
+        .prizes li:last-child {
+            border-bottom: none;
+        }
+
+        .event-info {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--text-light);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+        }
+
+        .event-info p {
+            margin: 0.8rem 0;
+            font-size: 1.1rem;
+        }
+
+        .event-info .live-placeholder {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border: 2px dashed rgba(255,255,255,0.6);
+            border-radius: 12px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .bank-info {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .bank-info p {
+            margin: 0.4rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f4f9f8;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header>
+    <div class="hero">
+        <h1>Unidos para salir adelante</h1>
+        <p>
+            Rifa solidaria para apoyar a la familia Povea Rodríguez que enfrenta un momento difícil,
+            transformando la solidaridad en esperanza y alivio.
+        </p>
+        <a href="#causa" class="cta">Conoce la causa</a>
+    </div>
+</header>
+
+<!-- CAUSA -->
+<section id="causa">
+    <h2>La causa solidaria</h2>
+    <div class="section-intro">
+        <p>
+            Esta rifa nace del deseo de acompañar a la familia de Stalin y Lucy que atravesó una
+            situación médica compleja e inesperada. El objetivo es reunir fondos
+            para cubrir una deuda hospitalaria asumida con esfuerzo y responsabilidad.
+        </p>
+    </div>
+
+    <div class="highlight">
+        <p>
+            Stalyn será siempre recordado en el corazón de su familia como un símbolo
+            de fortaleza y amor. Hoy, ese recuerdo se convierte en impulso para
+            seguir adelante, apoyados por la unión y la empatía de quienes decidan
+            sumarse a esta causa.
+        </p>
+    </div>
+</section>
+
+<!-- PREMIOS -->
+<section class="prizes">
+    <h2>Premios de la rifa</h2>
+    <div class="section-intro">
+        <p>
+            Cada boleto representa una oportunidad de ganar y, al mismo tiempo,
+            un gesto de apoyo genuino.
+        </p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Premios principales</h3>
+            <ul>
+                <li>Televisión</li>
+                <li>Microondas</li>
+                <li>Edredón</li>
+                <li>Juego de sábanas</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Premios adicionales</h3>
+            <ul>
+                <li>Quintal de arroz</li>
+                <li>Arroba de azúcar</li>
+                <li>4 premios sorpresa</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Boleto solidario</h3>
+            <p>
+                Valor del boleto: <strong>$1 dólar</strong>.
+                Un pequeño aporte que suma grandes esperanzas.
+            </p>
+        </div>
+    </div>
+    <div class="highlight">
+        <img src="/images/gallery/Boleto.png" style="width:100%">
+    </div>
+</section>
+
+<!-- ORGANIZADORES -->
+<section>
+    <h2>Organizadores</h2>
+    <div class="section-intro">
+        <p>
+            Esta rifa es organizada con transparencia y compromiso por los hijos
+            de la familia, Valeria, Mateo e Isaías, quienes buscan cumplir con una
+            responsabilidad adquirida y mirar hacia el futuro con dignidad.
+        </p>
+    </div>
+</section>
+
+<!-- SORTEO -->
+<section>
+    <h2>Día del sorteo</h2>
+    <div class="event-info">
+        <p><strong>Fecha:</strong> 18 de enero de 2026</p>
+        <p><strong>Hora:</strong> 5:00 p.m.</p>
+        <p>
+            El sorteo se realizará en un <strong>en vivo</strong> a través de una
+            red social.
+        </p>
+
+        <!-- Este bloque se actualizará en una siguiente iteración -->
+        <div class="live-placeholder">
+            Próximamente aquí se publicará el enlace del live o el perfil oficial
+            donde se transmitirá el sorteo.
+        </div>
+    </div>
+</section>
+
+<!-- DONACIONES Y CONTACTO -->
+<section id="contacto">
+    <h2>Donaciones y contacto</h2>
+    <div class="section-intro">
+        <p>
+            Si deseas colaborar de manera directa, también puedes hacerlo mediante
+            una donación. Cada aporte cuenta y es profundamente valorado.
+        </p>
+    </div>
+
+    <div class="cards">
+        <div class="bank-info">
+            <h3>Información bancaria</h3>
+            <p><strong>Nombre del titular:</strong> Valeria Povea Rodríguez</p>
+            <p><strong>Institución bancaria:</strong> Banco del Pichincha</p>
+            <p><strong>Tipo de cuenta:</strong> Ahorros</p>
+            <p><strong>Número de cuenta:</strong> 2213958996</p>
+            <p><strong>Cédula:</strong> </p>
+            <p><strong>Correo electrónico:</strong> </p>
+        </div>
+
+        <div class="card">
+            <h3>Contacto</h3>
+            <p>
+                Para mayor información sobre los boletos, el sorteo o la causa,
+                puedes comunicarte directamente al WhatsApp de los organizadores.
+            </p>
+            <p><strong>Valeria:</strong> <a href="tel:+593 98 307 5535">+593 98 307 5535</a></p>
+            <p><strong>Mateo:</strong> <a href="tel:+593 98 707 6850">+593 98 707 6850</a></p>
+            <p><strong>Lucy:</strong> <a href="tel:+593 99 677 7891">+593 99 677 7891</a></p>
+            <p><strong>Andrés (primo):</strong> <a href="tel:+593 99 923 5692">+593 99 923 5692</a></p>
+            <p hidden ><strong>Redes sociales:</strong> [Por definir]</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>
+        Gracias por ser parte de esta iniciativa solidaria.
+        Tu apoyo ayuda a construir un camino más llevadero y lleno de esperanza.
+    </p>
+</footer>
+
+</body>
+</html>
