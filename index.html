@@ -1231,6 +1231,8 @@
     const closeLightbox = document.getElementById('closeLightbox');
 
     galleryImages.forEach(img => {
+        // Exclude YouTube thumbnails inside video-trigger (they open the video modal instead)
+        if (img.closest('.video-trigger')) return;
         img.addEventListener('click', () => {
             lightbox.style.display = 'flex';
             lightboxImg.src = img.src;
@@ -1255,7 +1257,11 @@
     const closeBtn = document.querySelector('.close-video');
 
     triggers.forEach(trigger => {
-        trigger.addEventListener('click', () => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            // Avoid opening a second modal if already open (e.g. double-tap, event quirks)
+            if (modal.style.display === 'flex') return;
 
             const videoId = trigger.dataset.video;
             const startTime = trigger.dataset.start || 0;
