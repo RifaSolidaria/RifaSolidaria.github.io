@@ -494,23 +494,75 @@
         }
         /* *************** */
 
-        .mini-media {
-            flex: 0 0 auto;
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-        }
 
-        .mini-media img,
-        .mini-media video {
+
+/* ===== video youtube ===== */
+
+.mini-media {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    flex: 0 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+        .mini-media img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            cursor: pointer;
-            border-radius: 8px;
         }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 22px;
+            color: white;
+            background: rgba(0,0,0,0.6);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* ===== MODAL VIDEO YOUTUBE ===== */
+
+        .video-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .video-modal iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 12px;
+            border: none;
+        }
+
+        .close-video {
+            position: absolute;
+            top: -35px;
+            right: 0;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
 
     </style>
 </head>
@@ -625,7 +677,7 @@
         <!-- Este bloque se actualizará en una siguiente iteración -->
         <div class="live-placeholder">
             <p>
-                <a href="https://www.facebook.com/andyeryto/" class="cta">facebook.com/andyeryto/</a>
+                <a href="https://www.facebook.com/share/v/1N7Xyrg8sk/" class="cta">facebook.com/andyeryto/</a>
             </p>
         </div>
     </div>
@@ -652,8 +704,24 @@
                 </div>
                 <!-- Mini galería de evidencias -->
                 <div class="mini-gallery">
-                    <img src="/images/gallery/winners/Ganador_01.JPEG"   alt="Evidencia 1">
-                    <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 2">
+
+                    <!-- VIDEO (YouTube) -->
+                    <div class="mini-media video-trigger"
+                         data-video="ti_eIsPfY9c"
+                         data-start="5079">
+                        <img src="https://img.youtube.com/vi/ti_eIsPfY9c/hqdefault.jpg"
+                             alt="Video evidencia entrega">
+                        <div class="play-icon">▶</div>
+                    </div>
+
+                    <!-- Evidencias en imagen -->
+                    <div class="mini-media">
+                        <img src="/images/gallery/winners/Ganador_01.JPEG" alt="Evidencia 1">
+                    </div>
+                    <div class="mini-media">
+                        <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 1">
+                    </div>
+
                 </div>
 
             </div>
@@ -669,8 +737,24 @@
                 </div>
                 <!-- Mini galería de evidencias -->
                 <div class="mini-gallery">
-                    <img hidden src="/images/gallery/winners/vid/winner02.mp4"  alt="Winner">
-                    <img hidden src="/images/gallery/winners/Ganador_01.JPEG"   alt="Evidencia 1">
+
+                    <!-- VIDEO (YouTube) -->
+                    <div class="mini-media video-trigger"
+                         data-video="ti_eIsPfY9c"
+                         data-start="4684">
+                        <img src="https://img.youtube.com/vi/ti_eIsPfY9c/hqdefault.jpg"
+                             alt="Video evidencia entrega">
+                        <div class="play-icon">▶</div>
+                    </div>
+
+                    <!-- Evidencias en imagen -->
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Ganador_01.JPEG" alt="Evidencia 1">
+                    </div>
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 1">
+                    </div>
+
                 </div>
             </div>
 
@@ -683,7 +767,27 @@
                     <p><strong>Teléfono:</strong> 095 944 5948</p>
                     <p><strong>Estado:</strong> Pendiente</p>
                 </div>
+                <!-- Mini galería de evidencias -->
+                <div class="mini-gallery">
 
+                    <!-- VIDEO (YouTube) -->
+                    <div class="mini-media video-trigger"
+                         data-video="ti_eIsPfY9c"
+                         data-start="3007">
+                        <img src="https://img.youtube.com/vi/ti_eIsPfY9c/hqdefault.jpg"
+                             alt="Video evidencia entrega">
+                        <div class="play-icon">▶</div>
+                    </div>
+
+                    <!-- Evidencias en imagen -->
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Ganador_01.JPEG" alt="Evidencia 1">
+                    </div>
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 1">
+                    </div>
+
+                </div>
 
             </div>
 
@@ -696,6 +800,27 @@
                     <p><strong>Teléfono:</strong> 097 925 3527</p>
                     <p><strong>Estado:</strong> Pendiente</p>
                 </div>
+                <!-- Mini galería de evidencias -->
+                <div class="mini-gallery">
+
+                    <!-- VIDEO (YouTube) -->
+                    <div class="mini-media video-trigger"
+                         data-video="ti_eIsPfY9c"
+                         data-start="2653">
+                        <img src="https://img.youtube.com/vi/ti_eIsPfY9c/hqdefault.jpg"
+                             alt="Video evidencia entrega">
+                        <div class="play-icon">▶</div>
+                    </div>
+
+                    <!-- Evidencias en imagen -->
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Ganador_01.JPEG" alt="Evidencia 1">
+                    </div>
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 1">
+                    </div>
+
+                </div>
             </div>
 
             <div class="gallery-item">
@@ -706,11 +831,27 @@
                     <p><strong>Ganador:</strong> Mario Castro</p>
                     <p><strong>Teléfono:</strong> 099 174 5763</p>
                     <p><strong>Estado:</strong><mark>&nbsp Entregado &nbsp</mark></p>
-                        <!-- Mini galería de evidencias -->
-                    <div class="mini-gallery">
-                        <img src="/images/gallery/winners/Ganador_05.JPEG"   alt="Evidencia 1">
-                        <img src="/images/gallery/winners/Evidencia_05.JPEG" alt="Evidencia 2">
+                </div>
+                <!-- Mini galería de evidencias -->
+                <div class="mini-gallery">
+
+                    <!-- VIDEO (YouTube) -->
+                    <div class="mini-media video-trigger"
+                         data-video="ti_eIsPfY9c"
+                         data-start="2262">
+                        <img src="https://img.youtube.com/vi/ti_eIsPfY9c/hqdefault.jpg"
+                             alt="Video evidencia entrega">
+                        <div class="play-icon">▶</div>
                     </div>
+
+                    <!-- Evidencias en imagen -->
+                    <div class="mini-media">
+                        <img src="/images/gallery/winners/Ganador_05.JPEG" alt="Evidencia 1">
+                    </div>
+                    <div class="mini-media">
+                        <img src="/images/gallery/winners/Evidencia_05.JPEG" alt="Evidencia 1">
+                    </div>
+
                 </div>
             </div>
 
@@ -723,6 +864,27 @@
                     <p><strong>Teléfono:</strong> 098 307 5535</p>
                     <p><strong>Estado:</strong> Entregado</p>
                 </div>
+                <!-- Mini galería de evidencias -->
+                <div class="mini-gallery">
+
+                    <!-- VIDEO (YouTube) -->
+                    <div class="mini-media video-trigger"
+                         data-video="ti_eIsPfY9c"
+                         data-start="1965">
+                        <img src="https://img.youtube.com/vi/ti_eIsPfY9c/hqdefault.jpg"
+                             alt="Video evidencia entrega">
+                        <div class="play-icon">▶</div>
+                    </div>
+
+                    <!-- Evidencias en imagen -->
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Ganador_01.JPEG" alt="Evidencia 1">
+                    </div>
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 1">
+                    </div>
+
+                </div>
             </div>
 
             <div class="gallery-item">
@@ -733,6 +895,27 @@
                     <p><strong>Ganador:</strong> Gustavo Cuchipe</p>
                     <p><strong>Teléfono:</strong> 098 140 6433</p>
                     <p><strong>Estado:</strong> Pendiente</p>
+                </div>
+                <!-- Mini galería de evidencias -->
+                <div class="mini-gallery">
+
+                    <!-- VIDEO (YouTube) -->
+                    <div class="mini-media video-trigger"
+                         data-video="ti_eIsPfY9c"
+                         data-start="796">
+                        <img src="https://img.youtube.com/vi/ti_eIsPfY9c/hqdefault.jpg"
+                             alt="Video evidencia entrega">
+                        <div class="play-icon">▶</div>
+                    </div>
+
+                    <!-- Evidencias en imagen -->
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Ganador_01.JPEG" alt="Evidencia 1">
+                    </div>
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 1">
+                    </div>
+
                 </div>
             </div>
 
@@ -745,6 +928,27 @@
                     <p><strong>Teléfono:</strong> 098 921 7308</p>
                     <p><strong>Estado:</strong> Pendiente</p>
                 </div>
+                <!-- Mini galería de evidencias -->
+                <div class="mini-gallery">
+
+                    <!-- VIDEO (YouTube) -->
+                    <div class="mini-media video-trigger"
+                         data-video="ti_eIsPfY9c"
+                         data-start="1077">
+                        <img src="https://img.youtube.com/vi/ti_eIsPfY9c/hqdefault.jpg"
+                             alt="Video evidencia entrega">
+                        <div class="play-icon">▶</div>
+                    </div>
+
+                    <!-- Evidencias en imagen -->
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Ganador_01.JPEG" alt="Evidencia 1">
+                    </div>
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 1">
+                    </div>
+
+                </div>
             </div>
 
             <div class="gallery-item">
@@ -756,6 +960,27 @@
                     <p><strong>Teléfono:</strong> 099 508 3181</p>
                     <p><strong>Estado:</strong> Pendiente</p>
                 </div>
+                <!-- Mini galería de evidencias -->
+                <div class="mini-gallery">
+
+                    <!-- VIDEO (YouTube) -->
+                    <div class="mini-media video-trigger"
+                         data-video="ti_eIsPfY9c"
+                         data-start="1335">
+                        <img src="https://img.youtube.com/vi/ti_eIsPfY9c/hqdefault.jpg"
+                             alt="Video evidencia entrega">
+                        <div class="play-icon">▶</div>
+                    </div>
+
+                    <!-- Evidencias en imagen -->
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Ganador_01.JPEG" alt="Evidencia 1">
+                    </div>
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 1">
+                    </div>
+
+                </div>
             </div>
 
             <div class="gallery-item">
@@ -766,6 +991,27 @@
                     <p><strong>Ganador:</strong> Rosalba Ichima</p>
                     <p><strong>Teléfono:</strong> 098 705 7417</p>
                     <p><strong>Estado:</strong> Pendiente</p>
+                </div>
+                <!-- Mini galería de evidencias -->
+                <div class="mini-gallery">
+
+                    <!-- VIDEO (YouTube) -->
+                    <div class="mini-media video-trigger"
+                         data-video="ti_eIsPfY9c"
+                         data-start="1680">
+                        <img src="https://img.youtube.com/vi/ti_eIsPfY9c/hqdefault.jpg"
+                             alt="Video evidencia entrega">
+                        <div class="play-icon">▶</div>
+                    </div>
+
+                    <!-- Evidencias en imagen -->
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Ganador_01.JPEG" alt="Evidencia 1">
+                    </div>
+                    <div hidden class="mini-media">
+                        <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 1">
+                    </div>
+
                 </div>
             </div>
 
@@ -780,13 +1026,23 @@
 
     <div class="gallery-grid">
 
-        <!-- Imagen 1 -->
+        <!-- Video -->
         <div class="gallery-item">
-            <img src="/images/gallery/prizes/all/sorteo.JPEG" alt="Momento del sorteo en vivo">
+            <iframe
+                    width="100%"
+                    height="250"
+                    src="https://www.youtube.com/embed/ti_eIsPfY9c?si=WzOWgrvbCh-TMyp8"
+                    title="Video del sorteo solidario"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+            </iframe>
+
             <div class="media-description">
                 <p>
-                    Inicio del sorteo en vivo donde se realizó la selección aleatoria
-                    de los boletos participantes.
+                    Transmisión completa del sorteo realizada en vivo, mostrando
+                    el proceso transparente de selección de ganadores.
                 </p>
             </div>
         </div>
@@ -796,7 +1052,18 @@
             <img src="/images/gallery/prizes/all/awards.JPEG" alt="Entrega de premios">
             <div class="media-description">
                 <p>
-                    Entrega oficial de los premios a los ganadores del sorteo solidario.
+                    Premios listos para el sorteo solidario.
+                </p>
+            </div>
+        </div>
+
+        <!-- Imagen 1 -->
+        <div class="gallery-item">
+            <img src="/images/gallery/prizes/all/sorteo.JPEG" alt="Momento del sorteo en vivo">
+            <div class="media-description">
+                <p>
+                    Inicio del sorteo en vivo donde se realizó la selección aleatoria
+                    de los boletos participantes.
                 </p>
             </div>
         </div>
@@ -816,8 +1083,7 @@
 
             <div class="media-description">
                 <p>
-                    Transmisión completa del sorteo realizada en vivo, mostrando
-                    el proceso transparente de selección de ganadores.
+                    Video emitido cuando se postergó la primera fecha del sorteo del Domingo 25 de enero del 2026.
                 </p>
             </div>
         </div>
@@ -922,6 +1188,14 @@
         Tu apoyo ayuda a construir un camino más llevadero y lleno de esperanza.
     </p>
 </footer>
+
+<div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+        <span class="close-video">&times;</span>
+        <div id="videoContainer"></div>
+    </div>
+</div>
+
 <script>
     const galleryImages = document.querySelectorAll('.gallery-item img');
     const lightbox = document.getElementById('lightbox');
@@ -946,11 +1220,40 @@
     });
 </script>
 
-<!-- Modal -->
-<div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img">
-</div>
+<script>
+    const triggers = document.querySelectorAll('.video-trigger');
+    const modal = document.getElementById('videoModal');
+    const videoContainer = document.getElementById('videoContainer');
+    const closeBtn = document.querySelector('.close-video');
+
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+
+            const videoId = trigger.dataset.video;
+            const startTime = trigger.dataset.start || 0;
+
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&start=${startTime}&rel=0`;
+            iframe.allow = "autoplay; encrypted-media";
+            iframe.allowFullscreen = true;
+
+            videoContainer.innerHTML = '';
+            videoContainer.appendChild(iframe);
+
+            modal.style.display = 'flex';
+        });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    function closeModal() {
+        modal.style.display = 'none';
+        videoContainer.innerHTML = ''; // Detiene el video completamente
+    }
+</script>
 
 </body>
 </html>
