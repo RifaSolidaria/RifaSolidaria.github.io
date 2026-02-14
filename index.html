@@ -215,10 +215,303 @@
             }
         }
 
+        /* Porción para evitar eventos sobre las imágenes */
+        /*
         img {
             pointer-events: none;
         }
-        
+        */
+
+        /* ===== SECCIÓN GANADORES ===== */
+
+        #ganadores1 {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            background: linear-gradient(180deg, #ffffff, #f3faf9);
+            position: relative;
+        }
+
+        /* Animación sutil de borde brillante */
+        #ganadores1::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            background-size: 200% 100%;
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Grid más controlado */
+        #ganadores1 .cards {
+            display: grid;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        /* Responsive explícito */
+        @media (min-width: 1024px) {
+            #ganadores1 .cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 1023px) {
+            #ganadores1 .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 599px) {
+            #ganadores1 .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CARD */
+        #ganadores1 .card {
+            max-width: 350px;
+            margin: auto;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #ganadores1 .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+        }
+
+        /* Título centrado */
+        #ganadores1 .card h3 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        /* Imagen responsive y centrada */
+        #ganadores1 .card img {
+            display: block;
+            margin: 0 auto 1rem auto;
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+        }
+
+        /* Texto inferior alineado a la izquierda */
+        #ganadores1 .card p {
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+        }
+
+    /* ===== GALERÍA ===== */
+
+#galeria {
+    padding: 4rem 2rem;
+    background: #ffffff;
+}
+
+        .gallery-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (min-width: 1200px) {
+            .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (min-width: 480px) and (max-width: 767px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 479px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* ===== LIGHTBOX ===== */
+
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 12px;
+        }
+
+        #closeLightbox {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* ===== GALERÍA PREMIOS ===== */
+
+        .gallery-section {
+            padding: 80px 20px;
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-item {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-description {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .gallery-description h4 {
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .gallery-description p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        mark {
+            background: lightsalmon;
+        }
+
+        /* ===== MINI GALERÍA EVIDENCIAS ===== */
+
+        .mini-gallery {
+            display: flex;
+            gap: 10px;
+            padding: 15px 20px 20px 20px;
+            overflow-x: auto;
+        }
+
+        .mini-gallery img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .mini-gallery img:hover {
+            transform: scale(1.08);
+            opacity: 0.9;
+        }
+
+        /* Scroll más elegante */
+        .mini-gallery::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .mini-gallery::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+
+        .media-description {
+            padding: 15px 18px 20px 18px;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+            text-align: left;
+        }
+        /* *************** */
+
+        .mini-media {
+            flex: 0 0 auto;
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mini-media img,
+        .mini-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
     </style>
 </head>
 <body>
@@ -229,17 +522,16 @@
         <h1>Unidos para salir adelante</h1>
         <p>
             Rifa solidaria para apoyar a la familia Povea Rodríguez que enfrenta un momento difícil.
-            </br>Transformando la solidaridad en esperanza y alivio.
+            <br/>Transformando la solidaridad en esperanza y alivio.
+        </p>
+        <p>
+        <h1>Ganadores de la Rifa</h1>
+        </p>
+        <p>
+            <a href="#ganadores" class="cta"> 👉 click aquí</a>
         </p>
         <p>
             <img src="/images/gallery/Familia_Povea_RodriguezE.jpeg" style="width:50%" onContextMenu="return false;">
-        </p>
-        <p>
-        <h1>Link de la Rifa
-    </h1>
-        </p>
-        <p>
-            <a href="https://www.facebook.com/andyeryto/" class="cta">facebook.com/andyeryto/</a>
         </p>
         <p>
             <a href="#causa" class="cta">Conoce la causa</a>
@@ -325,10 +617,10 @@
 
 <!-- SORTEO -->
 <section id="sorteo">
-    <h2>Día del sorteo</h2>
+    <h2>Sorteo realizado</h2>
     <div class="event-info">
         <p><strong>Fecha:</strong> Domingo 8 de febrero de 2026</p>
-        <p><strong>Hora:</strong> 14H00 </p>
+        <p><strong>Hora:</strong> 15H30 </p>
 
         <!-- Este bloque se actualizará en una siguiente iteración -->
         <div class="live-placeholder">
@@ -338,6 +630,237 @@
         </div>
     </div>
 </section>
+
+<!-- GANADORES -->
+<section id="ganadores" class="gallery-section">
+    <div class="container">
+        <h2 class="section-title">🎉 Ganadores del Sorteo Solidario</h2>
+        <p class="section-subtitle">
+            Gracias a todos por participar y apoyar esta causa benéfica.
+        </p>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item">
+                <img src="/images/gallery/prizes/PREMIO_01.JPEG" alt="Ganador Premio">
+                <div class="gallery-description">
+                    <h4>Premio: Televisor</h4>
+                    <p><strong>Boleto N:</strong> C369</p>
+                    <p><strong>Ganador:</strong> Banquita Simbaña</p>
+                    <p><strong>Teléfono:</strong> 098 057 2330</p>
+                    <p><strong>Estado:</strong><mark>&nbsp Entregado &nbsp</mark></p>
+                </div>
+                <!-- Mini galería de evidencias -->
+                <div class="mini-gallery">
+                    <img src="/images/gallery/winners/Ganador_01.JPEG"   alt="Evidencia 1">
+                    <img src="/images/gallery/winners/Ganador_01.JPEG"   alt="Evidencia 2">
+                    <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 3">
+                </div>
+
+            </div>
+
+            <div class="gallery-item">
+                <img src="/images/gallery/prizes/PREMIO_02.JPEG" alt="Ganador Premio">
+                <div class="gallery-description">
+                    <h4>Premio: MICROONDAS</h4>
+                    <p><strong>Boleto N:</strong> D462</p>
+                    <p><strong>Ganador:</strong> Consuelo Proaño</p>
+                    <p><strong>Teléfono:</strong> 098 762 0646</p>
+                    <p><strong>Estado:</strong> Pendiente</p>
+                </div>
+                <!-- Mini galería de evidencias -->
+                <div class="mini-gallery">
+                    <img hidden src="/images/gallery/winners/vid/winner02.mp4"  alt="Winner">
+                    <img hidden src="/images/gallery/winners/Ganador_01.JPEG"   alt="Evidencia 1">
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/images/gallery/prizes/PREMIO_03.JPEG" alt="Ganador Premio">
+                <div class="gallery-description">
+                    <h4>Premio: EDREDÓN</h4>
+                    <p><strong>Boleto N:</strong> A199</p>
+                    <p><strong>Ganador:</strong> Jorge Imbaquingo</p>
+                    <p><strong>Teléfono:</strong> 095 944 5948</p>
+                    <p><strong>Estado:</strong> Pendiente</p>
+                </div>
+
+                <!-- Mini galería de evidencias -->
+                <div class="mini-gallery">
+
+                    <!-- Video corto -->
+                    <div class="mini-media">
+                        <video controls preload="metadata">
+                            <source src="/images/gallery/prizes/vid/vid01.mp4" type="video/mp4">
+                            <source src="/images/gallery/prizes/vid/vid02.webm" type="video/webm">
+                            Tu navegador no soporta video HTML5.
+                        </video>
+                    </div>
+                    <!-- Video corto -->
+                    <div class="mini-media">
+                        <video controls preload="metadata">
+                            <source src="/images/gallery/prizes/vid/vid02.webm" type="video/webm">
+                            Tu navegador no soporta video HTML5.
+                        </video>
+                    </div>
+
+                    <!-- Evidencias en imagen -->
+                    <div class="mini-media">
+                        <img src="/images/gallery/winners/Ganador_01.JPEG" alt="Evidencia 1">
+                    </div>
+
+                    <div class="mini-media">
+                        <img src="/images/gallery/winners/Evidencia_01.JPEG" alt="Evidencia 2">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="gallery-item">
+                <img src="/images/gallery/prizes/PREMIO_04.JPEG" alt="Ganador Premio">
+                <div class="gallery-description">
+                    <h4>Premio: SABANAS</h4>
+                    <p><strong>Boleto N:</strong> B208</p>
+                    <p><strong>Ganador:</strong> Renato Vasquez</p>
+                    <p><strong>Teléfono:</strong> 097 925 3527</p>
+                    <p><strong>Estado:</strong> Pendiente</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/images/gallery/prizes/PREMIO_05.JPEG" alt="Ganador Premio">
+                <div class="gallery-description">
+                    <h4>Premio: QUINTAL DE ARROZ</h4>
+                    <p><strong>Boleto N:</strong> E015</p>
+                    <p><strong>Ganador:</strong> Mario Castro</p>
+                    <p><strong>Teléfono:</strong> 099 174 5763</p>
+                    <p><strong>Estado:</strong><mark>&nbsp Entregado &nbsp</mark></p>
+                        <!-- Mini galería de evidencias -->
+                    <div class="mini-gallery">
+                        <img src="/images/gallery/winners/Ganador_05.JPEG"   alt="Evidencia 1">
+                        <img src="/images/gallery/winners/Evidencia_05.JPEG" alt="Evidencia 2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/images/gallery/prizes/PREMIO_06.JPEG" alt="Ganador Premio">
+                <div class="gallery-description">
+                    <h4>Premio: ARROBA DE AZUCAR</h4>
+                    <p><strong>Boleto N:</strong> D110</p>
+                    <p><strong>Ganador:</strong> Valeria Povea</p>
+                    <p><strong>Teléfono:</strong> 098 307 5535</p>
+                    <p><strong>Estado:</strong> Entregado</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/images/gallery/prizes/PREMIO_07.JPEG" alt="Ganador Premio">
+                <div class="gallery-description">
+                    <h4>Premio: SORPRESA 1</h4>
+                    <p><strong>Boleto N:</strong> E045</p>
+                    <p><strong>Ganador:</strong> Gustavo Cuchipe</p>
+                    <p><strong>Teléfono:</strong> 098 140 6433</p>
+                    <p><strong>Estado:</strong> Pendiente</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/images/gallery/prizes/PREMIO_08.JPEG" alt="Ganador Premio">
+                <div class="gallery-description">
+                    <h4>Premio: SORPRESA 2</h4>
+                    <p><strong>Boleto N:</strong> A178</p>
+                    <p><strong>Ganador:</strong> Andrian Rosero</p>
+                    <p><strong>Teléfono:</strong> 098 921 7308</p>
+                    <p><strong>Estado:</strong> Pendiente</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/images/gallery/prizes/PREMIO_09.JPEG" alt="Ganador Premio">
+                <div class="gallery-description">
+                    <h4>Premio: SORPRESA 3</h4>
+                    <p><strong>Boleto N:</strong> A039</p>
+                    <p><strong>Ganador:</strong> Joselin Cedeño</p>
+                    <p><strong>Teléfono:</strong> 099 508 3181</p>
+                    <p><strong>Estado:</strong> Pendiente</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="/images/gallery/prizes/PREMIO_10.JPEG" alt="Ganador Premio">
+                <div class="gallery-description">
+                    <h4>Premio: SORPRESA 4</h4>
+                    <p><strong>Boleto N:</strong> A337</p>
+                    <p><strong>Ganador:</strong> Rosalba Ichima</p>
+                    <p><strong>Teléfono:</strong> 098 705 7417</p>
+                    <p><strong>Estado:</strong> Pendiente</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+    <h2 class="highlight">Momentos de la rifa solidaria</h2>
+
+    <div class="gallery-grid">
+
+        <!-- Imagen 1 -->
+        <div class="gallery-item">
+            <img src="/images/gallery/prizes/all/sorteo.JPEG" alt="Momento del sorteo en vivo">
+            <div class="media-description">
+                <p>
+                    Inicio del sorteo en vivo donde se realizó la selección aleatoria
+                    de los boletos participantes.
+                </p>
+            </div>
+        </div>
+
+        <!-- Imagen 2 -->
+        <div class="gallery-item">
+            <img src="/images/gallery/prizes/all/awards.JPEG" alt="Entrega de premios">
+            <div class="media-description">
+                <p>
+                    Entrega oficial de los premios a los ganadores del sorteo solidario.
+                </p>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <div class="gallery-item">
+            <iframe
+                    width="100%"
+                    height="250"
+                    src="https://www.youtube.com/embed/DMz8W10DYCY?si=atmQz4RQ8-J0pAO_"
+                    title="Video del sorteo solidario"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+            </iframe>
+
+            <div class="media-description">
+                <p>
+                    Transmisión completa del sorteo realizada en vivo, mostrando
+                    el proceso transparente de selección de ganadores.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+    <span id="closeLightbox">&times;</span>
+    <img id="lightboxImg">
+</div>
+
 
 <!-- DONACIONES Y CONTACTO -->
 <section id="contacto">
@@ -429,6 +952,35 @@
         Tu apoyo ayuda a construir un camino más llevadero y lleno de esperanza.
     </p>
 </footer>
+<script>
+    const galleryImages = document.querySelectorAll('.gallery-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeLightbox = document.getElementById('closeLightbox');
+
+    galleryImages.forEach(img => {
+        img.addEventListener('click', () => {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = img.src;
+        });
+    });
+
+    closeLightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target !== lightboxImg) {
+            lightbox.style.display = 'none';
+        }
+    });
+</script>
+
+<!-- Modal -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+</div>
 
 </body>
 </html>
