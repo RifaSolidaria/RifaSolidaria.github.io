@@ -547,6 +547,13 @@
             max-width: 800px;
         }
 
+        #videoContainer {
+            min-height: 0;
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            background: #000;
+        }
+
         .video-modal iframe {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -1255,25 +1262,34 @@
     const videoContainer = document.getElementById('videoContainer');
     const closeBtn = document.querySelector('.close-video');
 
+    let videoModalOpenedAt = 0;
+    const VIDEO_OPEN_COOLDOWN_MS = 500;
+
+    function openVideoModal(trigger) {
+        const now = Date.now();
+        if (modal.style.display === 'flex') return;
+        if (now - videoModalOpenedAt < VIDEO_OPEN_COOLDOWN_MS) return;
+
+        const videoId = trigger.dataset.video;
+        const startTime = trigger.dataset.start || 0;
+        if (!videoId) return;
+
+        videoContainer.innerHTML = '';
+        const iframe = document.createElement('iframe');
+        iframe.allow = "autoplay; encrypted-media";
+        iframe.allowFullscreen = true;
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&start=${startTime}&rel=0`;
+        videoContainer.appendChild(iframe);
+
+        modal.style.display = 'flex';
+        videoModalOpenedAt = now;
+    }
+
     triggers.forEach(trigger => {
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            // Avoid opening a second modal if already open (e.g. double-tap, event quirks)
-            if (modal.style.display === 'flex') return;
-
-            const videoId = trigger.dataset.video;
-            const startTime = trigger.dataset.start || 0;
-
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&start=${startTime}&rel=0`;
-            iframe.allow = "autoplay; encrypted-media";
-            iframe.allowFullscreen = true;
-
-            videoContainer.innerHTML = '';
-            videoContainer.appendChild(iframe);
-
-            modal.style.display = 'flex';
+            openVideoModal(trigger);
         });
     });
 
